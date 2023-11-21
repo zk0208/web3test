@@ -146,8 +146,8 @@ function ExchangeList({
 export default function Home() {
 
   const [instid, setInstId] = useState("BTC/USDT");
-  const [startTime, setStartTime] = useState("2023-08-20 00:00:00");
-  const [endTime, setEndTime] = useState("2023-09-21 16:05:14");
+  const [startTime, setStartTime] = useState("2023-09-01 00:00:00");
+  const [endTime, setEndTime] = useState("2023-09-03 00:00:00");
   const { data: hotRankingByBaseVolume } = useSWR(
     `/api/gateway/get_hot_ranking`,
     fetcher as Fetcher<HotRankingByBaseVolume, string>
@@ -194,7 +194,7 @@ export default function Home() {
   function HotRankingLists(){
     var labeltime : string[] | undefined = [];
     var dataranksets = [];
-    let startT = moment('2023-08-20 00:00').format("YYYY-MM-DD HH:mm");
+    let startT = moment('2023-09-01 00:00').format("YYYY-MM-DD HH:mm");
     let len :any = labels_instid? labels_instid.length : 1;
     for(let i = 0;i < 200;i++){
       labeltime.push(moment(startT).add(i,'hours').format("YYYY-MM-DD HH:mm"));

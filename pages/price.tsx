@@ -79,8 +79,8 @@ function Home1() {
   const ex :any = exchangeByInstID?exchangeByInstID.data.rows[0] : "okx";
   const [exchange, setExchange] = useState(ex?ex:'okx');
   
-  const [startTime, setStartTime] = useState("2023-08-20 00:00:00");
-  const [endTime, setEndTime] = useState("2023-09-04 00:00:00");
+  const [startTime, setStartTime] = useState("2023-09-01 00:00:00");
+  const [endTime, setEndTime] = useState("2023-09-03 00:00:00");
 //   const { data: candleSticksByTime} = useSWR(
 //     `/api/gateway/get_index_candlesticks?exchange=${exchange}&instid=${instid}&min_time=${startTime}&max_time=${endTime}`,
 //     fetcher as Fetcher<CandleSticksByTime, string>
