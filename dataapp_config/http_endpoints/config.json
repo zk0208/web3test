@@ -1,83 +1,192 @@
 [
   {
-    "name": "/avg_price_per_year",
+    "name": "/get_hot_score_dynamic",
     "description": "",
     "method": "GET",
-    "endpoint": "/avg_price_per_year",
+    "endpoint": "/get_hot_score_dynamic",
     "data_source": {
       "cluster_id": 1379661944646227267
     },
-    "params": [],
-    "settings": {
-      "timeout": 5000,
-      "row_limit": 50
+    "params": [
+    {
+      "name": "start_time",
+      "type": "string",
+      "required": 0,
+      "default": "2023-09-01 00:00:00"
     },
-    "sql_file": "sql/GET-avg_price_per_year.sql",
+    {
+      "name": "end_time",
+      "type": "string",
+      "required": 0,
+      "default": "2023-08-20 00:00:10"
+    },
+    {
+      "name": "instid",
+      "type": "string",
+      "required": 0,
+      "default": "BTC/USDT"
+    }
+  ],
+    "settings": {
+      "timeout": 30000,
+      "row_limit": 2000
+    },
+    "sql_file": "sql/GET-get_hot_score_dynamic.sql",
     "type": "sql_endpoint",
     "return_type": "json"
   },
   {
-    "name": "/order_by_brand_year",
+    "name": "/get_exchange_by_instid",
     "description": "",
     "method": "GET",
-    "endpoint": "/order_by_brand_year",
+    "endpoint": "/get_exchange_by_instid",
     "data_source": {
       "cluster_id": 1379661944646227267
     },
     "params": [
       {
-        "name": "year",
+        "name": "instid",
         "type": "string",
         "required": 0,
-        "default": ""
+        "default": "BTC/USDT"
       }
     ],
     "settings": {
-      "timeout": 5000,
-      "row_limit": 50
+      "timeout": 30000,
+      "row_limit": 2000
     },
-    "sql_file": "sql/GET-order_by_brand_year.sql",
+    "sql_file": "sql/GET-get_exchange_by_instid.sql",
     "type": "sql_endpoint",
     "return_type": "json"
   },
   {
-    "name": "/price_by_brand_year",
+    "name": "/get_trading_data_by_exchange",
     "description": "",
     "method": "GET",
-    "endpoint": "/price_by_brand_year",
+    "endpoint": "/get_trading_data_by_exchange",
     "data_source": {
       "cluster_id": 1379661944646227267
     },
     "params": [
       {
-        "name": "year",
+        "name": "exchange",
         "type": "string",
         "required": 0,
-        "default": ""
+        "default": "OKX"
+      },
+      {
+        "name": "instid",
+        "type": "string",
+        "required": 0,
+        "default": "BTC/USDT"
       }
     ],
     "settings": {
-      "timeout": 5000,
-      "row_limit": 50
+      "timeout": 30000,
+      "row_limit": 2000
     },
-    "sql_file": "sql/GET-price_by_brand_year.sql",
+    "sql_file": "sql/GET-get_trading_data_by_exchange.sql",
     "type": "sql_endpoint",
     "return_type": "json"
   },
   {
-    "name": "/total_order_per_year",
+    "name": "/get_trading_data_by_crypto",
     "description": "",
     "method": "GET",
-    "endpoint": "/total_order_per_year",
+    "endpoint": "/get_trading_data_by_crypto",
+    "data_source": {
+      "cluster_id": 1379661944646227267
+    },
+    "params": [
+      {
+        "name": "instid",
+        "type": "string",
+        "required": 0,
+        "default": "BTC/USDT"
+      },
+      {
+        "name": "start_time",
+        "type": "string",
+        "required": 0,
+        "default": "2023-08-24 13:41:10"
+      },
+      {
+        "name": "end_time",
+        "type": "string",
+        "required": 0,
+        "default": "2023-08-24 16:05:14"
+      }
+    ],
+    "settings": {
+      "timeout": 30000,
+      "row_limit": 2000
+    },
+    "sql_file": "sql/GET-get_trading_data_by_crypto.sql",
+    "type": "sql_endpoint",
+    "return_type": "json"
+  },
+  {
+    "name": "/get_hot_ranking",
+    "description": "",
+    "method": "GET",
+    "endpoint": "/get_hot_ranking",
     "data_source": {
       "cluster_id": 1379661944646227267
     },
     "params": [],
     "settings": {
-      "timeout": 5000,
-      "row_limit": 50
+      "timeout": 30000,
+      "row_limit": 2000
     },
-    "sql_file": "sql/GET-total_order_per_year.sql",
+    "sql_file": "sql/GET-get_hot_ranking.sql",
+    "type": "sql_endpoint",
+    "return_type": "json"
+  },
+  {
+    "name": "/get_index_candlesticks",
+    "description": "",
+    "method": "GET",
+    "endpoint": "/get_index_candlesticks",
+    "data_source": {
+      "cluster_id": 1379661944646227267
+    },
+    "params": [
+      {
+        "name": "exchange",
+        "type": "string",
+        "required": 0,
+        "default": "OKX"
+      },
+      {
+        "name": "instid",
+        "type": "string",
+        "required": 0,
+        "default": "BTC/USDT"
+      },
+      {
+        "name": "min_time",
+        "type": "string",
+        "required": 0,
+        "default": "2023-08-20 15:47:00"
+      },
+      {
+        "name": "max_time",
+        "type": "string",
+        "required": 0,
+        "default": "2023-08-31 15:51:00"
+      },
+      {
+        "name": "time_interal",
+        "type": "string",
+        "required": 0,
+        "default": "1m"
+      }
+    ],
+    "settings": {
+      "timeout": 30000,
+      "row_limit": 2000
+    },
+    "sql_file": "sql/GET-get_index_candlesticks.sql",
     "type": "sql_endpoint",
     "return_type": "json"
   }
